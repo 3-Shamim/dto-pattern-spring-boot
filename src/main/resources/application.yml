@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: DTO Pattern
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/dto_pattern?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&useLegacyDatetimeCode=false&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+    tomcat:
+      test-on-borrow: true
+      validation-query: SELECT 1
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        globally_quoted_identifiers: true
+        show_sql: true
+        hbm2ddl:
+          auto: update
+  sql:
+    init:
+      mode: always
